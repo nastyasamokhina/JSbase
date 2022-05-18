@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+<body>
+<!--
+Обязательное задание.
+
+Необходимо реализовать четыре функции, каждая функция должна принимать по два
+числа и выполнять одну из операций (каждая функция выполняет одну из них):
+1. Сложение
+2. Разность
+3. Умножение
+4. Деление
+
+Необходимо сделать так, чтобы функция вернула число, например выражение
+`console.log(sum(2, 6));` должно вывести число 8 в консоль (sum - функция
+сложения в данном примере, ваши названия функций могут отличаться).
+
+Округлять значения, которые возвращают функции не нужно, однако, обратите
+внимание на разность, функция должна вычесть из большего числа меньшее, либо
+вернуть 0, если числа равны.
+
+Функциям всегда передаются корректные числа, проверки на NaN, Infinity делать
+не нужно.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+<script>
+  "use strict";
+
+  const numberOne = +prompt('Введите первое число');
+  const numberTwo = +prompt('Введите второе число');
+
+/**
+  * Функция складывает два числа
+  * @param {number} numberOne - первое число, которое будет складываться.
+  * @param {number} numberTwo - второе число, которое будет складываться.
+  * @return {number} возвраает число, получившееся в результате сложения.
+  */
+  function sum(numberOne, numberTwo) {
+    return numberOne + numberTwo;
+  }
+
+  console.log(`Сумма чисел ${numberOne} и ${numberTwo} = ${(sum(numberOne, numberTwo))}`);
+
+  /**
+    * Функция вычитает из большего числа меньшее
+    * @param {number} numberOne - первое число.
+    * @param {number} numberTwo - второе число.
+    * @return {number} возвраает число, получившееся в результате вычитания из большего числа меньшего.
+    */
+  function dif(numberOne, numberTwo) {
+    if (numberOne > numberTwo) {
+      return numberOne - numberTwo;
+    } else if (numberOne < numberTwo) {
+      return numberTwo - numberOne;
+    } else {
+      return 0
+    }
+  }
+
+  if (numberOne > numberTwo) {
+    console.log(`Разность чисел ${numberOne} и ${numberTwo} = ${(dif(numberOne, numberTwo))}`);
+  } else if (numberOne < numberTwo) {
+    console.log(`Разность чисел ${numberTwo} и ${numberOne} = ${(dif(numberOne, numberTwo))}`);
+  } else {
+    console.log(`Разность чисел ${numberOne} и ${numberTwo} = 0`);
+  }
+
+  /**
+    * Функция умножает два числа
+    * @param {number} numberOne - первое число.
+    * @param {number} numberTwo - второе число.
+    * @return {number} возвраает число, получившееся в результате умножения.
+    */
+  function mult(numberOne, numberTwo) {
+    return numberOne * numberTwo;
+  }
+
+  console.log(`Произведение чисел ${numberOne} и ${numberTwo} = ${(mult(numberOne, numberTwo))}`);
+
+  /**
+    * Функция делит одно число на другое
+    * @param {number} numberOne - первое число.
+    * @param {number} numberTwo - второе число.
+    * @return {number} возвраает число, получившееся в результате деления первого числа на второе.
+    */
+  function div(numberOne, numberTwo) {
+    return numberOne / numberTwo;
+  }
+
+  console.log(`Деление ${numberOne} на ${numberTwo} = ${(div(numberOne, numberTwo))}`);
+
+</script>
+</body>
+</html>
