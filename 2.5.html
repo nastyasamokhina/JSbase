@@ -33,12 +33,12 @@ Infinity делать не нужно, однако, в случае если б
   "use strict";
 
   /**
-    * Функция возвращает результат операции в зависимости от того, какой оператор был передан.
-    * @param {number} agr1 - первое число, которое быдет подставляться в выаржение с определенной операцией.
-    * @param {number} agr2 - второе число, которое будет подставляться в выражение.
-    * @param (string) operation - оператор, указывающий какое действие необходимо произвести.
-    * @return {number} возвраает число, получившееся в результате операции.
-    */
+  * Функция возвращает результат операции в зависимости от того, какой оператор был передан.
+  * @param {number} agr1 - первое число, которое быдет подставляться в выаржение с определенной операцией.
+  * @param {number} agr2 - второе число, которое будет подставляться в выражение.
+  * @param (string) operation - оператор, указывающий какое действие необходимо произвести.
+  * @return {number} возвраает число, получившееся в результате операции.
+  */
    function mathOperation(arg1, arg2, operation) {
     if (operation === "+") {
       return sum(arg1, arg2);
@@ -53,11 +53,22 @@ Infinity делать не нужно, однако, в случае если б
     }
   }
 
-
+  /**
+  * Функция складывает два числа
+  * @param {number} numberOne - первое число, которое будет складываться.
+  * @param {number} numberTwo - второе число, которое будет складываться.
+  * @return {number} возвраает число, получившееся в результате сложения.
+  */
   function sum(numberOne, numberTwo) {
     return numberOne + numberTwo;
   }
 
+  /**
+    * Функция вычитает из большего числа меньшее
+    * @param {number} numberOne - первое число.
+    * @param {number} numberTwo - второе число.
+    * @return {number} возвраает число, получившееся в результате вычитания из большего числа меньшего.
+    */
   function dif(numberOne, numberTwo) {
     if (numberOne > numberTwo) {
       return numberOne - numberTwo;
@@ -68,16 +79,29 @@ Infinity делать не нужно, однако, в случае если б
     }
   }
 
+  /**
+    * Функция умножает два числа
+    * @param {number} numberOne - первое число.
+    * @param {number} numberTwo - второе число.
+    * @return {number} возвраает число, получившееся в результате умножения.
+    */
   function mult(numberOne, numberTwo) {
     return numberOne * numberTwo;
   }
 
+  /**
+    * Функция делит одно число на другое
+    * @param {number} numberOne - первое число.
+    * @param {number} numberTwo - второе число.
+    * @return {number} возвраает число, получившееся в результате деления первого числа на второе.
+    */
   function div(numberOne, numberTwo) {
     return numberOne / numberTwo;
   }
 
   console.log(mathOperation(5, 3, "+"));
   console.log(mathOperation(5, 3, ":"));
+  console.log(mathOperation(10, 3, "*"));
 
 </script>
 </body>
