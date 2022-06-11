@@ -59,21 +59,25 @@
 
   navEl.addEventListener('click', event => {
     const linkEl = document.querySelectorAll('.nav-link');
-    forEach( => {
-
+    linkEl.forEach((element) => {
+      if (element === event.target) {
+        element.classList.add('active');
+      } else {
+        element.classList.remove('active');
+      }
     });
 
-    if (event.target.classList.contains('nav-link')) {
-      linkEl.classList.add('active');
-    }
+    const panelText = {
+      T1: "Уверен, ты справишься с этим заданием!",
+      X6: "Знаю, программирование это нелегко.",
+      H99: "Однако, программирование, в итоге, принесет свои плоды.",
+    };
+
+    const targetParentEl = event.target.closest('.nav-item');
+    const textEl = document.querySelector('.text');
+    const atributEl = targetParentEl.getAttribute('data-text');
+    textEl.textContent = panelText[atributEl];
   });
-
-  const panelText = {
-    T1: "Уверен, ты справишься с этим заданием!",
-    X6: "Знаю, программирование это нелегко.",
-    H99: "Однако, программирование, в итоге, принесет свои плоды.",
-  };
-
 
   /*
   2. Необходимо сделать так, чтобы при изменении input'а менялся и размер шрифта
@@ -81,7 +85,14 @@
   шрифт у текста, никакого резкого увеличения шрифта не должно быть при
   перетаскивании ползунка.
    */
+  const inputEl = document.querySelector('input');
+  const inputDivEl = document.querySelector('#inputDiv');
 
+  inputEl.setAttribute("step", "1");
+
+  inputEl.addEventListener("input", () => {
+    inputDivEl.style.fontSize = inputEl.value + 'px'
+  });
 
 </script>
 </body>
