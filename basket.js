@@ -55,7 +55,9 @@ function addToCart(target) {
   } else {
     basket[id] = new Product(name, price);
     }
+  let stringForBasket = '';
   for (let key in basket) {
-  console.log(basket[key]);
+    stringForBasket += basket[key].getProductMarkup();
   }
+  console.log(stringForBasket);
 };
