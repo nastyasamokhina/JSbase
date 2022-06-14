@@ -56,9 +56,9 @@
   */
 
   const navEl = document.querySelector('.nav');
+  const linkEl = document.querySelectorAll('.nav-link');
 
   navEl.addEventListener('click', event => {
-    const linkEl = document.querySelectorAll('.nav-link');
     linkEl.forEach((element) => {
       if (element === event.target) {
         element.classList.add('active');
