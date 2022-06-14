@@ -17,7 +17,7 @@ let basket = {};
 class Product {
   constructor(name, price) {
     this.name = name;
-    this.price = price;
+    this.price = +price;
     this.count = 1;
   }
   addItem() {
@@ -28,9 +28,9 @@ class Product {
   return `
     <div class="basketRow">
         <div>${this.name}</div>
-        <div>${this.count}</div>
-        <div>${this.price}</div>
-        <div>${this.count * this.price}</div>
+        <div>${this.count} шт.</div>
+        <div>${this.price} $</div>
+        <div>${this.count * this.price} $</div>
     </div>
   `;
   }
@@ -50,14 +50,28 @@ function addToCart(target) {
   let id = target.closest('.featuredItem').dataset.id;
   let name = target.closest('.featuredItem').dataset.name;
   let price = target.closest('.featuredItem').dataset.price;
+
   if (id in basket) {
     basket[id].addItem();
   } else {
     basket[id] = new Product(name, price);
     }
+
   let stringForBasket = '';
+  let productsCaunt = 0;
+  let productPrice = 0;
   for (let key in basket) {
     stringForBasket += basket[key].getProductMarkup();
+    productsCaunt += basket[key].count;
+    productPrice += basket[key].price;
   }
-  console.log(stringForBasket);
+
+  let basketContentEl = document.querySelector('.basketContent');
+  basketContentEl.innerHTML = stringForBasket;
+
+  let indexCount = document.querySelector('span.cartIconWrap > span');
+  indexCount.textContent = productsCaunt;
+
+  let totalPrice = document.querySelector('.basketTotalValue');
+  totalPrice.textContent = productPrice;
 };
