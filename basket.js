@@ -37,7 +37,6 @@ class Product {
 };
 
 const productsEl = document.querySelector('.featuredItems');
-const productEl = document.querySelectorAll('.featuredItem');
 productsEl.addEventListener('click', event => {
   if (!event.target.classList.contains('addToCart')) {
     return;
@@ -63,7 +62,7 @@ function addToCart(target) {
   for (let key in basket) {
     stringForBasket += basket[key].getProductMarkup();
     productsCaunt += basket[key].count;
-    productPrice += basket[key].price;
+    productPrice += (basket[key].price * basket[key].count);
   }
 
   let basketContentEl = document.querySelector('.basketContent');
